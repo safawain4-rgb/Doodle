@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Doodle Wall</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="siteHead">
+      <p class="eyebrow">An exhibit that anyone can hang</p>
+      <h1 class="wallTitle">The Doodle Wall</h1>
+      <p class="subhead">
+        Scribble something small, give it a title, and it joins the wall &mdash;
+        framed, anonymous, and on permanent display.
+      </p>
+    </header>
+
+    <main>
+      <!-- ============ DRAWING STUDIO ============ -->
+      <section class="studio" aria-label="Drawing studio">
+        <div class="studioCard">
+          <div class="canvasWrap">
+            <canvas id="doodleCanvas" width="480" height="480"></canvas>
+          </div>
+
+          <div class="tools">
+            <div class="toolRow">
+              <label class="toolLabel" for="brushColor">Ink</label>
+              <input id="brushColor" type="color" value="#2b2622" />
+
+              <label class="toolLabel" for="brushSize">Nib</label>
+              <input id="brushSize" type="range" min="2" max="22" value="6" />
+
+              <button id="clearBtn" class="ghostBtn" type="button">Clear</button>
+            </div>
+
+            <div class="toolRow">
+              <input
+                id="captionInput"
+                type="text"
+                maxlength="140"
+                placeholder="Give your doodle a title (optional)"
+              />
+              <button id="submitBtn" class="hangBtn" type="button">Hang it up</button>
+            </div>
+            <p id="statusMsg" class="statusMsg" role="status"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ RECENTLY HUNG ============ -->
+      <section class="recent" aria-label="Recently submitted doodles">
+        <h2 class="sectionTitle">Just Hung</h2>
+        <p class="sectionNote">Your submission appears here the moment it's framed.</p>
+        <div id="gallery" class="galleryGrid"></div>
+      </section>
+
+      <!-- ============ THE WALL (infinite marquee) ============ -->
+      <section class="wall" aria-label="The full gallery wall">
+        <h2 class="sectionTitle">The Permanent Collection</h2>
+        <p class="sectionNote">Every doodle ever hung, drifting by at random.</p>
+        <div class="marquee">
+          <div class="marqueeRow" id="row1"></div>
+        </div>
+        <div class="marquee marquee--reverse">
+          <div class="marqueeRow" id="row2"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="siteFoot">
+      <p>Built with HTML, CSS, vanilla JS, and Supabase.</p>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
